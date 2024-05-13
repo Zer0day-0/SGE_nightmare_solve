@@ -18,3 +18,33 @@ eval "$(/ndata/home/servername/usergroup/user/anaconda3/bin/conda shell.bash hoo
 conda init
 
 #make sure that your bashrc have conda init configured.
+
+# User specific aliases and functions
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/ndata/home/servername/usergroup/user/anaconda3/bin/conda' 'shell.bash' '$
+)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/ndata/home/servername/usergroup/user/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/ndata/home/servername/usergroup/user/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/ndata/home/servername/usergroup/user/anaconda3/bin/:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+/ndata/home/servername/usergroup/user/anaconda3
+
+
+#Do you wish to update your shell profile to automatically initialize conda?
+#This will activate conda on startup and change the command prompt when activated.
+#If you'd prefer that conda's base environment not be activated on startup,
+#   run the following command when conda is activated:
+
+conda config --set auto_activate_base false
+
+#You can undo this by running `conda init --reverse $SHELL`? [yes|no]
