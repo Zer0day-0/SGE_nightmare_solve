@@ -13,6 +13,11 @@ bioperl install :- conda install bioconda::perl-bioperl
 perl sqlite :- conda install bioconda::perl-dbd-sqlite
 vep-base install :- vep_install -g base
 
+#version 2
+#in some cases maybe more specific dependencies be needed 
+bigwig :- conda install bioconda::perl-bio-bigfile
+PCGR :- conda install -c pcgr -c conda-forge -c bioconda "pcgr==0.8.4.4" "cpsr==0.5.2.2" 
+
 #add lof to the plugin
 .vep/plugin
 
