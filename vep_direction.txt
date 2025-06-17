@@ -1,0 +1,28 @@
+For Linux 64, Open MPI is built with CUDA awareness but this support is disabled by default.                                                                                                                                                   
+To enable it, please set the environment variable OMPI_MCA_opal_cuda_support=true before                                                                                                                                                       
+launching your MPI processes. Equivalently, you can set the MCA parameter in the command line:                                                                                                                                                 
+mpiexec --mca opal_cuda_support 1 ...                                                                                                                                                                                                          
+                                                                                                                                                                                                                                               
+In addition, the UCX support is also built but disabled by default.                                                                                                                                                                            
+To enable it, first install UCX (conda install -c conda-forge ucx). Then, set the environment                                                                                                                                                  
+variables OMPI_MCA_pml="ucx" OMPI_MCA_osc="ucx" before launching your MPI processes.                                                                                                                                                           
+Equivalently, you can set the MCA parameters in the command line:                                                                                                                                                                              
+mpiexec --mca pml ucx --mca osc ucx ...                                                                                                                                                                                                        
+Note that you might also need to set UCX_MEMTYPE_CACHE=n for CUDA awareness via UCX.                                                                                                                                                           
+Please consult UCX's documentation for detail.                                                                                                                                                                                                 
+                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                               
+| This package installs only the variant effect predictor (VEP) library                                                                                                                                                                        
+code. To install data libraries, you can use the 'vep_install' command
+installed along with it. For example, to install the VEP library for human
+GRCh38 to a directory
+
+vep_install -a cf -s homo_sapiens -y GRCh38 -c /output/path/to/GRCh38/vep --CONVERT
+
+(note that vep_install is renamed from INSTALL.pl
+ to avoid having generic script names in the PATH)
+
+The --CONVERT flag is not required but improves lookup speeds during
+runs. See the VEP documentation for more details
+
+http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html
